@@ -1,14 +1,14 @@
 # perfectplaylist
 
-A Clojure library designed to ... well, that part is up to you.
+Generates a playlist for ur perfect ears.
 
 ## Usage
 
-FIXME
+-pipe in a list of names and song durations in seconds
+-the one argument is the desired playlist duration
+ex:
+	echo "songOne 12 songTwo 234 songThree 522" | java -jar perfectplaylist.jar 333
 
 ## License
 
-Copyright © 2018 FIXME
-
-Distributed under the Eclipse Public License either version 1.0 or (at
-your option) any later version.
+ur mom
