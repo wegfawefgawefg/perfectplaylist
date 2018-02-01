@@ -6,8 +6,11 @@ Generates a playlist for ur perfect ears.
 
 -pipe in a list of names and song durations in seconds
 -the one argument is the desired playlist duration
-ex:
-	echo "songOne 12 songTwo 234 songThree 522" | java -jar perfectplaylist.jar 333
+-use the provided example file with listed songs and durations
+
+## Example
+
+cat songsAndDurations | java -jar perfectplaylist.jar 333
 
 ## License
 
