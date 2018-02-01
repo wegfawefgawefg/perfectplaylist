@@ -4,8 +4,8 @@ Generates a playlist for ur perfect ears.
 
 ## Usage
 
--pipe in a list of names and song durations in seconds
--the one argument is the desired playlist duration
+-pipe in a list of names and song durations in seconds 	<br />
+-the one argument is the desired playlist duration		<br />
 -use the provided example file with listed songs and durations
 
 ## Example
