@@ -6,7 +6,7 @@ Generates a playlist for ur perfect ears.
 
 -pipe in a list of names and song durations in seconds 	<br />
 -the one argument is the desired playlist duration		<br />
--use the provided example file with listed songs and durations
+-use the provided example file with listed songs and durations in /exampleInput
 
 ## Example
 
