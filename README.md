@@ -12,6 +12,10 @@ Generates a playlist for ur perfect ears.
 
 cat songsAndDurations | java -jar perfectplaylist.jar 333
 
+## If You Cant Grok/Into Leiningen
+
+a free as in freedom jar is available in the jars folder
+
 ## License
 
 ur mom
