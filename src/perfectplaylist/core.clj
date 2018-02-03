@@ -53,27 +53,16 @@
 (defn -main [& args]
   (let [targetDuration (parse-int (first args))]
     (let [songDurationMap (tokensToSongDurationMap (tokenizeLines (getAllStdin)))]
-      
+
       ;create a thousand playlists
-      (let [listOfPlaylists
-            (loop [listOfPlaylists [] i 0]
-              (let [listOfPlaylists (conj listOfPlaylists (createPlaylist songDurationMap targetDuration))]
-                (if (= i 1000)
-                  listOfPlaylists
-                  (recur listOfPlaylists (inc i)))))]
+      (let [listOfPlaylists (repeatedly 1000 #(createPlaylist songDurationMap targetDuration))]
 
-        ;get duration of all 1000 playlists
-        (let [playlistsAndDurations
-              (loop [playlistsAndDurations {} remainingPlaylists listOfPlaylists]
-                (if (empty? remainingPlaylists)
-                  playlistsAndDurations
-                  (recur 
-                   (assoc playlistsAndDurations (first remainingPlaylists) (reduce + (vals (first remainingPlaylists))))
-                   (drop 1 remainingPlaylists))))]
+        ;calculate durations of all 1000 playlists
+        (let [durations (map (fn [playlist] (reduce + (vals playlist))) listOfPlaylists)]
 
-          ;get the longest playlist from the 1000
-          (let [ longestPlaylist (key (apply max-key val playlistsAndDurations))]
-            ;(println longestPlaylist)
-            ;(println (get playlistsAndDurations longestPlaylist))
-            (doseq [songTitle longestPlaylist] 
-              (println (first songTitle)))))))))
+          (let [playlistsAndDurations (zipmap listOfPlaylists durations)]
+
+            ;get the longest playlist from the 1000
+            (let [ longestPlaylist (key (apply max-key val playlistsAndDurations))]
+              (doseq [songTitle longestPlaylist] 
+                (println (first songTitle))))))))))
